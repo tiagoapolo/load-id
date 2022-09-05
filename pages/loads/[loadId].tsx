@@ -1,12 +1,14 @@
+import React from "react";
+import { GetStaticProps } from "next";
 
-import React from 'react';
-import { useRouter } from 'next/router';
-
-export default function LoadDetailPage () {
-    const router = useRouter();
-    const { loadId } = router.query;
-
-    return <div>
-        Hi Load {loadId ?? 'NOTHING'}
-    </div>
+export default function LoadDetailPage({ loadId }: { loadId?: string }) {
+  return <div>Hi Load {loadId ?? "NOTHING"}</div>;
 }
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  return {
+    props: {
+      loadId: ctx.params?.loadId,
+    },
+  };
+};

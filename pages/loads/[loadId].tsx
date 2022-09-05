@@ -3,7 +3,7 @@ import { GetStaticProps } from "next";
 
 export default function LoadDetailPage({ loadId }: { loadId?: string }) {
 
-  if (true) {
+  if (loadId == '123') {
     throw new Error("Loading");
   }
 
